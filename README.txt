@@ -1,4 +1,4 @@
-This is a proyect I made for fun in my free time.
+This is a project I made for fun in my free time.
 
 It has several Java classes, but at the moment the only classes that are being developed are Main.java and Full_CPU_Test.java
 

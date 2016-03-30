@@ -1,0 +1,47 @@
+i5-4570
+----------------------------------------------------------------------------------
+The average time per core is: 35.33455462475 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 4000.0 millions,
+Total time spent on 1.0E9 iterations was: 35.306646733 seconds.
+---> Those values make a final result of: 113.203634303012 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+i5-4440
+----------------------------------------------------------------------------------
+The average time per core is: 39.02528049525 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 4000.0 millions,
+Total time spent on 1.0E9 iterations was: 39.047807005 seconds.
+---> Those values make a final result of: 102.49766175253663 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+i5-3470
+----------------------------------------------------------------------------------
+The average time per core is: 41.15109468125 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 4000.0 millions,
+Total time spent on 1.0E9 iterations was: 41.158038371 seconds.
+---> Those values make a final result of: 97.20276048507044 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+Intel i5-6200U
+
+----------------------------------------------------------------------------------
+
+
+The average time per core is: 50.09860121575 seconds.
+----------------------------------------------------------------------------------
+
+The total number of iterations is: 4000.0 millions,
+
+Total time spent on 1.0E9 iterations was: 50.121868426 seconds.
+
+---> Those values make a final result of: 79.84254855288215 million iterations per second <---
+----------------------------------------------------------------------------------

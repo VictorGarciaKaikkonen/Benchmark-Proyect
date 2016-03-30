@@ -21,18 +21,11 @@ import java.util.regex.Pattern;
 
 public class Main {
 	static File log = new File(
-			"C:\\Users\\Victor\\Desktop\\Test\\log.txt"); /*
-															 * *Your path goes
-															 * here* (it's where
-															 * the file is going
-															 * to be created).
-															 * Make sure you use
-															 * double back
-															 * slashes (\\),
-															 * otherwise Java
-															 * will understand
-															 * this as commands
-															 */
+			"C:\\Users\\Public\\log.txt"); /*
+						 * *Your path goes here* (it's where the file is going
+						 * to be created). Make sure you use double back slashes
+						 * (\\), otherwise Java will understand this as commands
+						 */
 	static Date date = new Date();
 	static String fileName;
 	static double totalTime = 0;
@@ -115,11 +108,12 @@ public class Main {
 			out.append(data);
 			out.close();
 		} catch (IOException e) {
-			System.out.println("I couldn'log."); // Something went wrong
+			System.out.println("I couldn't log."); // Something went wrong
 		}
 
 	}
 
+	@SuppressWarnings("unused")
 	private static void calculateMean(File file) {
 		/*
 		 * This calculates the mean of the results written on your log file.
