@@ -43,17 +43,11 @@ Total time spent on 1.0E9 iterations was: 41.158038371 seconds.
 
 
 i5-6200U
-
 ----------------------------------------------------------------------------------
-
-
 The average time per core is: 50.09860121575 seconds.
 ----------------------------------------------------------------------------------
-
 The total number of iterations is: 4000.0 millions,
-
 Total time spent on 1.0E9 iterations was: 50.121868426 seconds.
-
 ---> Those values make a final result of: 79.84254855288215 million iterations per second <---
 ----------------------------------------------------------------------------------
 
@@ -61,15 +55,10 @@ Total time spent on 1.0E9 iterations was: 50.121868426 seconds.
 
 Intel Pentium Processor E6700
 ----------------------------------------------------------------------------------
-
-
 The average time per core is: 51.562841972 seconds.
 ----------------------------------------------------------------------------------
-
 The total number of iterations is: 2000.0 millions,
-
 Total time spent on 1.0E9 iterations was: 51.290481956 seconds.
-
 ---> Those values make a final result of: 38.7876215412264 million iterations per second <---
 ---------------------------------------------------------------------------------- 
 
@@ -77,14 +66,9 @@ Total time spent on 1.0E9 iterations was: 51.290481956 seconds.
 
 Intel Pentium Processor E2220
 ----------------------------------------------------------------------------------
-
-
 The average time per core is: 201.919188155 seconds.
 ----------------------------------------------------------------------------------
-
 The total number of iterations is: 2000.0 millions,
-
 Total time spent on 1.0E9 iterations was: 201.855677423 seconds.
-
 ---> Those values make a final result of: 9.90495266088695 million iterations per second <---
 ----------------------------------------------------------------------------------
