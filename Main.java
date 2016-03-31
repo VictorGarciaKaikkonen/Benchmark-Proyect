@@ -54,8 +54,13 @@ public class Main {
 			System.out.println("----------------------------------------------------------------------------------");
 
 			sb.append(System.lineSeparator());
+			sb.append("----------------------------------------------------------------------------------");
+			sb.append(System.lineSeparator());
+			
 			sb.append("The average time per core is: " + totalTime / Runtime.getRuntime().availableProcessors()
 					+ " seconds.");
+			sb.append(System.lineSeparator());
+			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
 			System.out.println("The average time per core is: " + totalTime / Runtime.getRuntime().availableProcessors()
 					+ " seconds.");
@@ -75,12 +80,15 @@ public class Main {
 			sb.append("---> Those values make a final result of: "
 					+ (totalIterations) / (totalTime / Runtime.getRuntime().availableProcessors())
 					+ " million iterations per second <---");
+			sb.append(System.lineSeparator());
+			sb.append("----------------------------------------------------------------------------------");
+			sb.append(System.lineSeparator());
 			System.out.println("---> Those values make a final result of: "
 					+ (totalIterations) / (totalTime / Runtime.getRuntime().availableProcessors())
 					+ " million iterations per second <---");
+			
 			System.out.println("----------------------------------------------------------------------------------");
 
-			sb.append(System.lineSeparator());
 			writeFile(sb.toString());
 
 		}
