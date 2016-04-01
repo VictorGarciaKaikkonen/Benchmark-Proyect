@@ -1,3 +1,14 @@
+i7-4790k
+----------------------------------------------------------------------------------
+The average time per core is: 35.659463441 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 8000.0 millions,
+Total time spent on 1.0E9 iterations was: 35.930221998 seconds.
+---> Those values make a final result of: 224.3443739201606 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
 i7-4702-MQ
 ----------------------------------------------------------------------------------
 The average time per core is: 51.683951866250005 seconds.
@@ -60,7 +71,18 @@ The average time per core is: 51.562841972 seconds.
 The total number of iterations is: 2000.0 millions,
 Total time spent on 1.0E9 iterations was: 51.290481956 seconds.
 ---> Those values make a final result of: 38.7876215412264 million iterations per second <---
----------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------
+
+
+
+i7-4500U
+----------------------------------------------------------------------------------
+The average time per core is: 128.52580247000003 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 4000.0 millions,
+Total time spent on 1.0E9 iterations was: 128.5532544 seconds.
+---> Those values make a final result of: 31.12215542037688 million iterations per second <---
+----------------------------------------------------------------------------------
 
 
 
