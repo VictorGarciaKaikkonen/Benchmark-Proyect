@@ -44,11 +44,11 @@ Total time spent on 1.0E9 iterations was: 39.047807005 seconds.
 
 i5-3470
 ----------------------------------------------------------------------------------
-The average time per core is: 41.15109468125 seconds.
+The average time per core is: 40.53500910375 seconds.
 ----------------------------------------------------------------------------------
 The total number of iterations is: 4000.0 millions,
-Total time spent on 1.0E9 iterations was: 41.158038371 seconds.
----> Those values make a final result of: 97.20276048507044 million iterations per second <---
+Total time spent on 1.0E9 iterations was: 40.542617094 seconds.
+---> Those values make a final result of: 98.68013079168026 million iterations per second <---
 ----------------------------------------------------------------------------------
 
 
@@ -64,6 +64,17 @@ Total time spent on 1.0E9 iterations was: 50.121868426 seconds.
 
 
 
+Intel Pentium Processor G3240
+----------------------------------------------------------------------------------
+The average time per core is: 38.715742233499995 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 2000.0 millions,
+Total time spent on 1.0E9 iterations was: 38.698608467 seconds.
+---> Those values make a final result of: 51.65857309250907 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
 Intel Pentium Processor E6700
 ----------------------------------------------------------------------------------
 The average time per core is: 51.562841972 seconds.
@@ -71,6 +82,28 @@ The average time per core is: 51.562841972 seconds.
 The total number of iterations is: 2000.0 millions,
 Total time spent on 1.0E9 iterations was: 51.290481956 seconds.
 ---> Those values make a final result of: 38.7876215412264 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+Intel Pentium Processor E5500
+----------------------------------------------------------------------------------
+The average time per core is: 57.81642871 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 2000.0 millions,
+Total time spent on 1.0E9 iterations was: 57.752049882 seconds.
+---> Those values make a final result of: 34.59224384182826 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+Intel Pentium Processor E7500
+----------------------------------------------------------------------------------
+The average time per core is: 61.8420842565 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 2000.0 millions,
+Total time spent on 1.0E9 iterations was: 61.709470084 seconds.
+---> Those values make a final result of: 32.34043651738318 million iterations per second <---
 ----------------------------------------------------------------------------------
 
 
@@ -93,4 +126,15 @@ The average time per core is: 201.919188155 seconds.
 The total number of iterations is: 2000.0 millions,
 Total time spent on 1.0E9 iterations was: 201.855677423 seconds.
 ---> Those values make a final result of: 9.90495266088695 million iterations per second <---
+----------------------------------------------------------------------------------
+
+
+
+Intel Pentium 4 3.06Ghz Overclocked to 3.29Ghz
+----------------------------------------------------------------------------------
+The average time per core is: 457.08776036899997 seconds.
+----------------------------------------------------------------------------------
+The total number of iterations is: 2000.0 millions,
+Total time spent on 1.0E9 iterations was: 457.007742508 seconds.
+---> Those values make a final result of: 4.37552735690282 million iterations per second <---
 ----------------------------------------------------------------------------------
