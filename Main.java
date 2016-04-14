@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 /*		A brief and simple to-do list for the future:
  * 
@@ -30,15 +32,29 @@ public class Main {
 	static String fileName;
 	static double totalTime = 0;
 	static int times = 0;
+	static int cores;
 
 	public static void main(String[] args) throws BenchmarkException {
 
 		fileName = date.toString();
-		int cores = Runtime.getRuntime().availableProcessors();
-		System.out.println("Application running on " + cores + " cores.");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Press m and enter for multicore test or s and enter for singlecore test: \n");
+		String st = sc.next();
+		if(st.equals("m")){
+			cores = Runtime.getRuntime().availableProcessors();
+		}
+		else {
+			if (st.equals("s")){
+			cores = 1;
+			}
+			else{
+				System.exit(0);
+			}
+		}
+		System.out.println("Application running on " + cores + " cores.");		
 		for (int i = 1; i <= cores; i++) {
 			(new Full_CPU_Test()).start();
-		}
+		}	
 
 		// calculateMean(log); /*It doesn't work yet*/
 
@@ -47,22 +63,25 @@ public class Main {
 	public static void sumTimesAndDisplayResults(double time) throws FileNotFoundException {
 		totalTime += time;
 		times++;
-		double totalIterations = 1000 * (Runtime.getRuntime().availableProcessors());
-		if (times == Runtime.getRuntime().availableProcessors()) {
+		double totalIterations = 1000 * cores;
+		if (times == cores) {
 			StringBuilder sb = new StringBuilder();
 
+			System.out.println("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
+			sb.append("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
+			
 			System.out.println("----------------------------------------------------------------------------------");
 
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
 			
-			sb.append("The average time per core is: " + totalTime / Runtime.getRuntime().availableProcessors()
+			sb.append("The average time per core is: " + totalTime / cores
 					+ " seconds.");
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
-			System.out.println("The average time per core is: " + totalTime / Runtime.getRuntime().availableProcessors()
+			System.out.println("The average time per core is: " + totalTime / cores
 					+ " seconds.");
 
 			System.out.println("----------------------------------------------------------------------------------");
@@ -78,13 +97,13 @@ public class Main {
 			sb.append(System.lineSeparator());
 
 			sb.append("---> Those values make a final result of: "
-					+ (totalIterations) / (totalTime / Runtime.getRuntime().availableProcessors())
+					+ (totalIterations) / (totalTime / cores)
 					+ " million iterations per second <---");
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
 			System.out.println("---> Those values make a final result of: "
-					+ (totalIterations) / (totalTime / Runtime.getRuntime().availableProcessors())
+					+ (totalIterations) / (totalTime / cores)
 					+ " million iterations per second <---");
 			
 			System.out.println("----------------------------------------------------------------------------------");
