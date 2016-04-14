@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.hyperic.sigar.Sigar;
+import org.hyperic.sigar.SigarException;
 
 
 /*		A brief and simple to-do list for the future:
@@ -21,7 +23,7 @@ import java.util.regex.Pattern;
  * GUI
  * */
 
-public class Main {
+public class Main { 
 	static File log = new File(
 			"C:\\Users\\Public\\log.txt"); /*
 						 * *Your path goes here* (it's where the file is going
@@ -38,19 +40,22 @@ public class Main {
 
 		fileName = date.toString();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Press m and enter for multicore test or s and enter for singlecore test: \n");
+		System.out.println("Options: \n M -> Multicore Test \n S -> Single Core Test \n C -> Test on a custom number of cores \n E -> Exit \nEnter a running mode: \n");
 		String st = sc.next();
-		if(st.equals("m")){
+		if(st.equalsIgnoreCase("m")){
 			cores = Runtime.getRuntime().availableProcessors();
-		}
-		else {
-			if (st.equals("s")){
+		}else if (st.equalsIgnoreCase("s")){
 			cores = 1;
-			}
-			else{
+			}else if(st.equalsIgnoreCase("c")){
+				System.out.println("Enter a number of cores: \n");
+				int c = sc.nextInt(); 
+				if(c<=0 || c>Runtime.getRuntime().availableProcessors()){
+				throw new BenchmarkException("Invalid number of cores.");
+				}
+				cores=c;
+			}else{
 				System.exit(0);
 			}
-		}
 		System.out.println("Application running on " + cores + " cores.");		
 		for (int i = 1; i <= cores; i++) {
 			(new Full_CPU_Test()).start();
@@ -60,15 +65,21 @@ public class Main {
 
 	}
 
-	public static void sumTimesAndDisplayResults(double time) throws FileNotFoundException {
+	public static void sumTimesAndDisplayResults(double time) throws FileNotFoundException, SigarException {
 		totalTime += time;
 		times++;
 		double totalIterations = 1000 * cores;
 		if (times == cores) {
 			StringBuilder sb = new StringBuilder();
 
-			System.out.println("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
-			sb.append("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
+			Sigar sigar = new Sigar();
+			String mod = null;
+			org.hyperic.sigar.CpuInfo[] cpuInfoList = sigar.getCpuInfoList();
+			for(org.hyperic.sigar.CpuInfo info : cpuInfoList){
+				mod = info.getModel();
+			}
+			
+			System.out.println("\nCPU Model: " + mod);
 			
 			System.out.println("----------------------------------------------------------------------------------");
 
@@ -76,7 +87,9 @@ public class Main {
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
 			
-			sb.append("The average time per core is: " + totalTime / cores
+			sb.append("\nCPU Model: " + mod);
+			
+			sb.append("\nThe average time per core is: " + totalTime / cores
 					+ " seconds.");
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
