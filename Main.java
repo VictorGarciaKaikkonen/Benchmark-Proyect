@@ -12,7 +12,8 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import org.hyperic.sigar.Sigar;
+import org.hyperic.sigar.SigarException;
 
 /*		A brief and simple to-do list for the future:
  * 
@@ -24,10 +25,12 @@ import java.util.regex.Pattern;
 public class Main {
 	static File log = new File(
 			"C:\\Users\\Public\\log.txt"); /*
-						 * *Your path goes here* (it's where the file is going
-						 * to be created). Make sure you use double back slashes
-						 * (\\), otherwise Java will understand this as commands
-						 */
+											 * *Your path goes here* (it's where
+											 * the file is going to be created).
+											 * Make sure you use double back
+											 * slashes (\\), otherwise Java will
+											 * understand this as commands
+											 */
 	static Date date = new Date();
 	static String fileName;
 	static double totalTime = 0;
@@ -38,55 +41,63 @@ public class Main {
 
 		fileName = date.toString();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Options: \n M -> Multicore Test \n S -> Single Core Test \n C -> Test on a custom number of cores \n E -> Exit \nEnter a running mode: \n");
+		System.out.println(
+				"Options: \n M -> Multicore Test \n S -> Single Core Test \n C -> Test on a custom number of cores \n E -> Exit \nEnter a running mode: \n");
 		String st = sc.next();
-		if(st.equalsIgnoreCase("m")){
+		if (st.equalsIgnoreCase("m")) {
 			cores = Runtime.getRuntime().availableProcessors();
-		}else if (st.equalsIgnoreCase("s")){
+		} else if (st.equalsIgnoreCase("s")) {
 			cores = 1;
-			}else if(st.equalsIgnoreCase("c")){
-				System.out.println("Enter a number of cores: \n");
-				int c = sc.nextInt(); 
-				if(c<=0 || c>Runtime.getRuntime().availableProcessors()){
+		} else if (st.equalsIgnoreCase("c")) {
+			System.out.println("Enter a number of cores: \n");
+			int c = sc.nextInt();
+			if (c <= 0 || c > Runtime.getRuntime().availableProcessors()) {
+				sc.close();
 				throw new BenchmarkException("Invalid number of cores.");
-				}
-				cores=c;
-			}else{
-				System.exit(0);
 			}
-		
-		System.out.println("Application running on " + cores + " cores.");		
+			cores = c;
+		} else {
+			System.exit(0);
+		}
+		sc.close();
+		System.out.println("Application running on " + cores + " cores.");
 		for (int i = 1; i <= cores; i++) {
 			(new Full_CPU_Test()).start();
-		}	
+		}
 
 		// calculateMean(log); /*It doesn't work yet*/
 
 	}
 
-	public static void sumTimesAndDisplayResults(double time) throws FileNotFoundException {
+	public static void sumTimesAndDisplayResults(double time) throws FileNotFoundException, SigarException {
 		totalTime += time;
 		times++;
 		double totalIterations = 1000 * cores;
 		if (times == cores) {
 			StringBuilder sb = new StringBuilder();
 
-			System.out.println("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
-			sb.append("\n" + System.getenv("PROCESSOR_IDENTIFIER"));
-			
+			Sigar sigar = new Sigar();
+			String mod = null;
+			org.hyperic.sigar.CpuInfo[] cpuInfoList = sigar.getCpuInfoList();
+			for (org.hyperic.sigar.CpuInfo info : cpuInfoList) {
+				mod = info.getModel();
+			}
+
+			System.out.println("\nCPU Model: " + mod);
+
 			System.out.println("----------------------------------------------------------------------------------");
 
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
-			
-			sb.append("The average time per core is: " + totalTime / cores
-					+ " seconds.");
+
+			sb.append("\nCPU Model: " + mod);
+
+			sb.append("\nThe average time per core is: " + totalTime / cores + " seconds.");
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
-			System.out.println("The average time per core is: " + totalTime / cores
-					+ " seconds.");
+			System.out.println("The average time per core is: " + totalTime / cores + " seconds.");
 
 			System.out.println("----------------------------------------------------------------------------------");
 
@@ -100,16 +111,14 @@ public class Main {
 					+ " iterations was: " + Full_CPU_Test.getTimeSpent() + ".");
 			sb.append(System.lineSeparator());
 
-			sb.append("---> Those values make a final result of: "
-					+ (totalIterations) / (totalTime / cores)
+			sb.append("---> Those values make a final result of: " + (totalIterations) / (totalTime / cores)
 					+ " million iterations per second <---");
 			sb.append(System.lineSeparator());
 			sb.append("----------------------------------------------------------------------------------");
 			sb.append(System.lineSeparator());
-			System.out.println("---> Those values make a final result of: "
-					+ (totalIterations) / (totalTime / cores)
+			System.out.println("---> Those values make a final result of: " + (totalIterations) / (totalTime / cores)
 					+ " million iterations per second <---");
-			
+
 			System.out.println("----------------------------------------------------------------------------------");
 
 			writeFile(sb.toString());

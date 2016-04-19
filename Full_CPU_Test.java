@@ -3,6 +3,8 @@ package prBenchmark;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
+import org.hyperic.sigar.SigarException;
+
 public class Full_CPU_Test extends Thread {
 
 	private static String timeSpent;
@@ -95,6 +97,9 @@ public class Full_CPU_Test extends Thread {
 		try {
 			Main.sumTimesAndDisplayResults(normalizedTotalTime);
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SigarException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
